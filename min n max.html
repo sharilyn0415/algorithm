@@ -1,0 +1,30 @@
+<html>
+<head></head>
+<body>
+	the random array is: <span id="arr"></span><br>
+	the min num is: <span id="min"></span><br>
+</body>
+<script>
+	var arr = [];
+	for (var i=0; i< 35; i++) {
+	    arr.push(Math.round(Math.random() * 35));
+	}
+	
+	document.getElementById("arr").innerHTML = arr;
+	document.getElementById("min").innerHTML = find_min(arr);
+
+	function find_min(arr) {
+		if (arr.length == 0) {
+			return;
+		}
+
+		var min = arr[0];
+		for (var i = 1; i < arr.length; i++) {
+			if(arr[i] < min) {
+				min = arr[i];
+			} 
+		}
+		return min;
+	}
+</script>
+</html>

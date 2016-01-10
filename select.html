@@ -1,0 +1,39 @@
+<html>
+<head></head>
+<body>
+	the random array is: <span id="arr"></span><br>
+	result: <span id="res"></span><br>
+	correct: <span id="correct"></span><br>
+</body>
+<script>
+	var arr = [];
+	for (var i=0; i< 15; i++) {
+	    arr.push(Math.round(Math.random() * 15));
+	}
+	
+	document.getElementById("arr").innerHTML = arr;
+	document.getElementById("res").innerHTML = selection_sort(arr);
+	document.getElementById("correct").innerHTML = selection_sort(arr) == arr.sort();
+	
+	
+	function selection_sort(arr) {
+		if (arr.length == 0) {
+			return arr;
+		}
+		for(var i = 0; i < arr.length; i++){
+			var min = i;
+			for(var j = i+1; j < arr.length; j++){
+				if(arr[j] < arr[min]) {
+					min = j;
+				} 	
+			}
+			var temp = arr[i];
+			arr[i] = arr[min];
+			arr[min] = temp;
+		}
+		return arr;
+	}
+
+	
+</script>
+</html>

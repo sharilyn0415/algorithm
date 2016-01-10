@@ -1,0 +1,25 @@
+<html>
+<head></head>
+<body> 
+	Enter your string: <input type="text" id="str" />
+	<button onclick="check()">Get substring</button><br>
+	Palindrome: <span id="res"></span>	
+	
+</body>
+<script>
+	function check() {
+		var string = document.getElementById("str").value;
+		document.getElementById("res").innerHTML = palindrome(string);
+	}
+
+	function palindrome(string) {
+		var size = string.length-1;
+		for (var i = 0, j = size; i < j; i++, j--) {
+			if(string.charAt(i) != string.charAt(j)){
+				return false;
+			}
+		}
+		return true;
+	}
+</script>
+</html>

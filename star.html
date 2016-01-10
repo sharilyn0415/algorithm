@@ -1,0 +1,40 @@
+<html>
+<head></head>
+<body>
+	<span id="num"></span> Rows Star printing: <br>
+	<div id="star"></div>
+	Mirror printing: <br>
+	<div id="mirror"></div>	
+
+</body>
+<script>
+	
+	var num = Math.round(Math.random() * 15);
+	document.getElementById("num").innerHTML = num;
+	document.getElementById("star").innerHTML = triangle(num);	
+	document.getElementById("mirror").innerHTML = triangle2(num);
+	
+
+	function triangle(num) {
+		var star = "";
+		for (var i = 0; i < num; i++) {
+			for(j = 0; j <= i; j++) {
+				star += "*";		
+			}
+			star += "<br>";
+		}
+		return star;
+	}
+
+	function triangle2(num) {
+		var star = '';
+		for (var i = num; i > 0; i--) {
+			for (var j = 0; j < i; j++) {
+				star += "*";
+			}
+			star += "<br>";
+		}
+		return star;
+	}
+</script>
+</html>

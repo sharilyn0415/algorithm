@@ -1,0 +1,46 @@
+<html>
+<head></head>
+<body> 
+	Enter your string: <input type="text" id="str" />
+	<button onclick="getSubstring()">Get substring</button><br>
+	Substring option1: <div id="sub"></div>	
+	Substring option2: <div id="sub2"></div>
+</body>
+<script>
+	function getSubstring() {
+		var string = document.getElementById("str").value
+		document.getElementById("sub").innerHTML = sub(string);
+		document.getElementById("sub2").innerHTML = sub2(string);
+	}
+
+	function sub(string) {
+		var length = string.length;
+		var res = [];
+		for (var i = 0; i < length; i++) {
+			for(j = i; j < length; j++) { 
+				res.push(string.substring(i, j+1));
+			}
+		}
+		return res;
+	}
+
+	function sub2(string){
+		var length = string.length;
+		var res = [];
+		// for(var i = 1; i < length; i++){
+		// 	for(j = 0; j < length; j++) { 
+		// 		if(i+j <= length){
+		// 			res.push(string.substring(j, i+j));
+		// 		}	
+		// 	}
+		// }
+		// res.push(string);
+		for(var i = 1; i <= length; i++) {
+			for(var j = 0; j <= length-i; j++) {
+				res.push(string.substring(j, i+j));
+			}
+		}
+		return res;
+	}
+</script>
+</html>
