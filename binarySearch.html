@@ -1,0 +1,60 @@
+<html>
+<head>binary search</head>
+<body>
+	the random array in order: <span id="arr"></span><br>
+	Enter your target number: <input type="number" id="num" />
+	<button onclick="submit()">Binary Search</button><br>
+	result: <span id="res"></span><br>
+</body>
+<script>
+	var arr = [];
+	for (var i=0; i< 35; i++) {
+	    arr.push(Math.round(Math.random() * 100));
+	}
+	document.getElementById("arr").innerHTML = insertion_sort(arr);
+
+	function submit() {
+		var number = document.getElementById("num").value;
+		document.getElementById("res").innerHTML = binary_search(number);
+	}
+
+	function binary_search(number) {
+		var mid = Math.floor(arr.length/2);
+		if(arr[mid] == number){
+			return true;
+		}
+		if(arr[mid] > number) {
+			for(var i = mid; i>=0; i--){
+				if(arr[i] == number){
+					return true;
+				}
+			}
+		} else {
+			for(var i = mid; i < arr.length; i++){
+				if(arr[i] == number){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	function insertion_sort(arr) {
+		if (arr.length < 2) {
+			return arr;
+		}
+		for(var i = 0; i < arr.length; i++) {
+			for(var j = i-1; j >= 0; j--) {
+				if(arr[j] > arr[j+1]) {
+					var tmp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = tmp;
+				} else {
+					break;
+				}
+			}
+		}
+		return arr;
+	}
+</script>
+</html>

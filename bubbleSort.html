@@ -1,19 +1,17 @@
 <html>
-<head></head>
+<head>bubble sort</head>
 <body>
 	the random array is: <span id="arr"></span><br>
 	result: <span id="res"></span><br>
-	correct: <span id="correct"></span><br>
 </body>
 <script>
 	var arr = [];
-	for (var i=0; i< 15; i++) {
-	    arr.push(Math.round(Math.random() * 15));
+	for (var i=0; i< 20; i++) {
+	    arr.push(Math.round(Math.random() * 100));
 	}
 	
 	document.getElementById("arr").innerHTML = arr;
 	document.getElementById("res").innerHTML = bubble_sort(arr);
-	document.getElementById("correct").innerHTML = bubble_sort(arr) == arr.sort();
 	
 	function bubble_sort(arr) {
 		if (arr.length < 2) {

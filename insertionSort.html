@@ -1,5 +1,5 @@
 <html>
-<head></head>
+<head>insertion sort</head>
 <body>
 	the random array is: <span id="arr"></span><br>
 	result: <span id="res"></span><br>
@@ -8,7 +8,7 @@
 <script>
 	var arr = [];
 	for (var i=0; i< 20; i++) {
-	    arr.push(Math.round(Math.random() * 20));
+	    arr.push(Math.round(Math.random() * 100));
 	}
 	
 	document.getElementById("arr").innerHTML = arr;
@@ -18,19 +18,29 @@
 		if (arr.length < 2) {
 			return arr;
 		}
-		for(var i = 1; i < arr.length; i++){
-			var num = arr[i];
-			for(var j = i-1; j >= 0; j--){
-				if(arr[j] > num) {
-					arr[j+1] = arr[j];
-					arr[j] = num;
-				} 	
+		// for(var i = 1; i < arr.length; i++) {
+		// 	var num = arr[i];
+		// 	for(var j = i-1; j >= 0; j--) {
+		// 		if(arr[j] > num) {
+		// 			arr[j+1] = arr[j];
+		// 			arr[j] = num;
+		// 		} else {
+		// 			break;
+		// 		}
+		// 	}
+		// }
+		for(var i = 0; i < arr.length; i++) {
+			for(var j = i-1; j >= 0; j--) {
+				if(arr[j] > arr[j+1]) {
+					var tmp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = tmp;
+				} else {
+					break;
+				}
 			}
-			
 		}
 		return arr;
 	}
-
-	
 </script>
 </html>

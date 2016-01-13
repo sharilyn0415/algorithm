@@ -1,0 +1,43 @@
+<html>
+<head></head>
+<body>
+	the random array is: <span id="arr"></span><br>
+	result: <span id="res"></span><br>
+</body>
+<script>
+	var arr = [];
+	for (var i=0; i< 20; i++) {
+	    arr.push(Math.round(Math.random() * 2));
+	}
+	document.getElementById("arr").innerHTML = arr;
+	document.getElementById("res").innerHTML = order_Sort(arr);
+
+	function order_Sort(arr) {
+		var count = 0;
+		for(var z = 0; z < arr.length; z++) {
+			if(arr[z] == 0){
+				count++;
+				for(var x = 0; x < count; x++){
+					if(arr[x] != 0) {
+						arr[z] = arr[x];
+						arr[x] = 0;
+						
+					}
+				}
+			}
+		}
+		for(var i = count; i < arr.length; i++){
+			if(arr[i] == 2 ){
+				for(var j = arr.length; j > i; j--){
+					if(arr[j] == 1) {
+						var temp = arr[i];
+						arr[i] = arr[j];
+						arr[j] = temp;
+					}	
+				}	
+			}	
+		}
+		return arr;
+	}
+</script>
+</html>

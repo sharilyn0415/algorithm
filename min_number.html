@@ -1,13 +1,13 @@
 <html>
-<head></head>
+<head>min number</head>
 <body>
 	the random array is: <span id="arr"></span><br>
-	the min num is: <span id="min"></span><br>
+	the min number is: <span id="min"></span><br>
 </body>
 <script>
 	var arr = [];
 	for (var i=0; i< 35; i++) {
-	    arr.push(Math.round(Math.random() * 35));
+	    arr.push(Math.round(Math.random() * 100));
 	}
 	
 	document.getElementById("arr").innerHTML = arr;
