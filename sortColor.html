@@ -1,0 +1,39 @@
+<html>
+<head>Sort Color</head>
+<body>
+	the random array is: <span id="arr"></span><br>
+	result: <span id="res"></span><br>
+</body>
+<script>
+	var arr = [];
+	for (var i=0; i< 10; i++) {
+	    arr.push(Math.round(Math.random() * 2));
+	}
+	document.getElementById("arr").innerHTML = arr;
+	document.getElementById("res").innerHTML = order_Sort(arr);
+
+	function order_Sort(arr) {
+		var i = 0;
+		var j = 0;
+		var k = arr.length-1;
+		while(i <= k) {
+			if(arr[i] == 0){
+				var temp = arr[j];
+				arr[j] = arr[i];
+				arr[i] = temp;
+				j++;
+				i++;
+			} else if(arr[i] == 2){
+				var temp = arr[k];
+				arr[k] = arr[i];
+				arr[i] = temp;
+				k--;
+			} else {
+				i++;
+			}
+		}
+		
+		return arr;
+	}
+</script>
+</html>

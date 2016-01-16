@@ -1,0 +1,33 @@
+
+<html>
+<head>Valid anagram</head>
+<body> 
+	Enter your string 1: <input type="text" id="str1" />
+	Enter your string 2: <input type="text" id="str2" />
+	<button onclick="getString()">Go</button><br>
+	result: <div id="res"></div>	
+	
+</body>
+<script>
+	function getString() {
+		var str1 = document.getElementById("str1").value;
+		var str2 = document.getElementById("str2").value;
+		document.getElementById("res").innerHTML = isAnagram(str1, str2);
+		
+	}
+	var isAnagram = function(s, t) {
+		if(s.length == 0 && t.length == 0){
+			return true;
+		}
+		var arr1 = s.split("");
+		var arr2 = t.split(""); 	
+	 	arr1.sort();
+	 	arr2.sort();
+		var is_same = (arr1.length == arr2.length) && arr1.every(function(element, index) {
+    														return element === arr2[index]; 
+															});	 	
+		return is_same; 
+	}
+
+</script>
+</html>

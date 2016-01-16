@@ -1,0 +1,25 @@
+<html>
+<head>Contains Duplicate</head>
+<body>
+	Random Array: <div id="arr"></div> 	
+	Is_duplicate: <span id="res"></span>
+</body>
+<script>
+	var arr = [];
+	for (var i=0; i< 20; i++) {
+	    arr.push(Math.round(Math.random() * 100));
+	}
+	document.getElementById("arr").innerHTML = arr;
+	document.getElementById("res").innerHTML = is_duplicate(arr);
+
+	function is_duplicate(nums) {
+		nums.sort();
+	    for(var i = 1; i < nums.length; i++) {
+	    	if(nums[i] == nums[i-1]){
+	    		return true;
+	    	}
+	    }
+	    return false;
+	}
+</script>
+</html>

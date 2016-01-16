@@ -1,0 +1,35 @@
+<html>
+<head>remove Element</head>
+<body>
+	Original Random Array: <div id="arr"></div> 
+	Enter a number to remove: <input type="number" id="nums" />
+	<button onclick="prep()">Go!</button><br>	
+	New Array is: <div id="res"></div>
+</body>
+<script>
+	var arr = [];
+	for (var i=0; i< 20; i++) {
+	    arr.push(Math.round(Math.random() * 5));
+	}
+	document.getElementById("arr").innerHTML = arr;
+
+	function prep() {
+		var nums = document.getElementById("nums").value;
+		document.getElementById("res").innerHTML = removeElement(arr,nums);
+	}
+	var removeElement = function(nums, val) {
+	    var j = 0;
+	    for(var i = 0; i < nums.length; i++){
+	        if(nums[i] != val) {
+	           nums[j] = nums[i];
+	           j += 1;
+	        }
+	    }
+	    var res = [];
+	    for(var x = 0; x < j+1; x++){
+	    	res.push(nums[x]);
+	    }
+	    return res;
+	}
+</script>
+</html>
