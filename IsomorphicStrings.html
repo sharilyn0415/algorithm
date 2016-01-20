@@ -1,0 +1,33 @@
+<html>
+<head>Isomorphic Strings</head>
+<body> 
+	Enter your string 1: <input type="text" id="str1" />
+	Enter your string 2: <input type="text" id="str2" />
+	<button onclick="getString()">Go</button><br>
+	result: <span id="res"></span>	
+	
+</body>
+<script>
+	function getString() {
+		var str1 = document.getElementById("str1").value;
+		var str2 = document.getElementById("str2").value;
+		document.getElementById("res").innerHTML = isIsomorphic(str1, str2);
+		
+	}
+	function isIsomorphic(s, t) {
+	     var hash = {};
+	    for(var i = 0; i < s.length; i++){
+	        if(!hash['s'+s[i]]){
+	            hash['s'+s[i]] = t[i];
+	        } 
+	        if(!hash['t'+t[i]]) {
+	            hash['t'+t[i]] = s[i];
+	        } 
+	        if(s[i] != hash['t'+t[i]] || t[i] != hash['s'+s[i]] ) {
+	                return false;
+	        }
+	    }
+	    return true;
+	}
+</script>
+</html>

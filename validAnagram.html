@@ -23,10 +23,9 @@
 		var arr2 = t.split(""); 	
 	 	arr1.sort();
 	 	arr2.sort();
-		var is_same = (arr1.length == arr2.length) && arr1.every(function(element, index) {
+		return (arr1.length == arr2.length) && arr1.every(function(element, index) {
     														return element === arr2[index]; 
 															});	 	
-		return is_same; 
 	}
 
 </script>

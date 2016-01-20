@@ -1,0 +1,33 @@
+<html>
+<head>Valid Palindrome II</head>
+<body> 
+	Enter your string: <input type="text" id="str" />
+	<button onclick="check()">Get substring</button><br>
+	Palindrome: <span id="res"></span>	
+	
+</body>
+<script>
+	function check() {
+		var string = document.getElementById("str").value;
+		document.getElementById("res").innerHTML = isPalindrome(string);
+	}
+	var isPalindrome = function(s) {
+	    var i = 0, j = s.length-1;
+	    s = s.toLowerCase();
+	    while (i < j) {
+	        while ( i<j && (s.charAt(i) < "a" || s.charAt(i) > "z") && (s.charAt(i) < '0' || s.charAt(i) > '9')) {
+	            i++;
+	        }
+	        while ( i<j && (s.charAt(j) < "a" || s.charAt(j) > "z") && (s.charAt(j) < '0' || s.charAt(j) > '9')) {
+	            j--;
+	        }
+	        if (s[i] != s[j] ) {
+	            return false;
+	        } 
+	        i++;
+	        j--;
+	    }
+	    return true;
+	};
+</script>
+</html>

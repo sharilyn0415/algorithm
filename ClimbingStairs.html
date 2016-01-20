@@ -1,0 +1,27 @@
+<html>
+<head>Climbing Stairs</head>
+<body>
+	Random Stairs: <div id="num"></div> 	
+	Is_duplicate: <span id="res"></span>
+</body>
+<script>
+	var num = arr.push(Math.round(Math.random() * 100));
+	document.getElementById("num").innerHTML = num;
+	document.getElementById("res").innerHTML = climbStairs(num);
+
+	var climbStairs = function (n) {
+		map = [];
+		map[0] = 1;
+		map[1] = 1;
+		map[2] = 2;
+		return helper(n, map);
+	};
+
+	var helper = function (n, map) {
+		if (map[n]) { return map[n]; }
+		res = helper(n-1, map) + helper(n-2, map);
+		map[n] = res;
+		return res;
+	}
+</script>
+</html>

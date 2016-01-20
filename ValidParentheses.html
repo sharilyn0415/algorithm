@@ -1,0 +1,42 @@
+<html>
+<head>Valid Parentheses</head>
+<body> 
+	containing just the characters '(', ')', '{', '}', '[' and ']': <input type="text" id="str" />
+	<button onclick="check()">Check Validation</button><br>
+	Result: <span id="res"></span>	
+	
+</body>
+<script>
+	function check() {
+		var string = document.getElementById("str").value;
+		document.getElementById("res").innerHTML = isValid(string);
+	}
+	function isValid(s) {
+	    var stack = [];
+	    for(var i = 0; i < s.length; i++) {
+	        temp = s.charAt(i);
+	        if(temp == '(' || temp == '{' || temp == '[') {
+	            stack.push(temp);
+	        } else {
+	            if(stack.length ==0) {
+	                return false;
+	            }
+	            if(temp == ')' && stack.pop() != '(') {
+	                return false;
+	            }
+	            if(temp == '}' && stack.pop() != '{') {
+	                return false;
+	            }
+	            if(temp == ']' && stack.pop() != '[') {
+	                return false;
+	            }
+	        }
+	    }
+	    if(stack.length == 0) {
+	        return true;
+	    } else {
+	        return false;
+	    }
+};
+</script>
+</html>

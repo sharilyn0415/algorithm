@@ -1,0 +1,32 @@
+<html>
+<head>Contains Duplicate II</head>
+<body>
+	Random Array: <div id="arr"></div>
+	Near by Duplicate max distance: <input type="number" id="num">
+	<button onclick="prep()">check</button><br>	
+	Result: <span id="res"></span>
+</body>
+<script>
+	var arr = [];
+	for (var i=0; i< 20; i++) {
+	    arr.push(Math.round(Math.random() * 40));
+	}
+	document.getElementById("arr").innerHTML = arr;
+	
+	function prep() {
+		var k = document.getElementById("num").value;
+		document.getElementById("res").innerHTML = containsNearbyDuplicate(arr, k);
+	}
+
+	function containsNearbyDuplicate(nums, k) {
+	    for(var i = 0; i < nums.length-1; i++) {
+	        for(var j = i+1; j <nums.length; j++) {
+	            if(nums[j] == nums[i] && j-i <= k) {
+	                return true;
+	            }
+	        }
+	    }
+	    return false;
+	}
+</script>
+</html>
