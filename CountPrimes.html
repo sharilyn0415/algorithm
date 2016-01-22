@@ -1,0 +1,35 @@
+<html>
+<head>Count Primes</head>
+<body>
+	Check how many prime numbers are under : <input type="number" id="num">
+	<button onclick="check()">Get result</button><br>
+	Result:  <span id="res"></span> 
+</body>
+<script>
+	function check() {
+		var num = document.getElementById("num").value;
+		document.getElementById("res").innerHTML = countPrimes(num);
+	}
+
+	var countPrimes = function(n) {
+	   var primes = [];
+	   var count = 0;
+	   if(n < 2) return count;
+	   for(var i = 2; i< n; i++) {
+	       var j = 2;
+	       if(primes[i] != 0) {
+	           while(i*j < n) {
+	              primes[i*j] = 0;
+	              j++; 
+	           }
+	       }
+	   }
+	   for(var x = 2; x < n; x++) {
+	       if(primes[x] != 0){
+	           count ++;
+	       }
+	   }
+	   return count;
+	};
+</script>
+</html>
