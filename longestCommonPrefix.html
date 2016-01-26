@@ -1,0 +1,29 @@
+<html>
+<head>longest Common Prefix</head>
+<body>
+	Add Array element: <div id="arr"></div> 
+	<button onclick="prep()">Add!</button><br>	
+	New Array is: <div id="res"></div>
+</body>
+<script>
+	var arr = [];
+	function prep() {
+		arr.push(document.getElementById("arr").value);
+		document.getElementById("res").innerHTML = longestCommonPrefix(arr);
+	}
+	function longestCommonPrefix(strs) {
+        if(strs.length == 0) return "";
+        var prefix = "";
+        for(var i = 0; i < strs[0].length; i++) {
+             if (strs.every(function (item) {
+                    return strs[0][i] === item[i];
+                })) {
+                prefix += strs[0][i];
+            } else {
+                break;
+            }
+        }
+        return prefix;
+    };
+</script>
+</html>

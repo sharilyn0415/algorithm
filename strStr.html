@@ -1,0 +1,37 @@
+<html>
+<head>strStr()</head>
+<body> 
+	Enter your string: <input type="text" id="str1" />
+	Enter your target string: <input type="text" id="str2" />
+	<button onclick="getString()">Check</button><br>
+	result: <div id="res"></div>	
+	
+</body>
+<script>
+	function getString() {
+		var str1 = document.getElementById("str1").value;
+		var str2 = document.getElementById("str2").value;
+		document.getElementById("res").innerHTML = strStr(str1, str2);
+		
+	}
+
+	function strStr(haystack, needle) {
+	    if(needle == "") return 0;
+	    var i = 0, j = 0;
+	    while(i <= haystack.length - needle.length) {
+	        while(haystack[i+j] == needle[j]) {
+	             j++;
+	            if(j == needle.length) {
+	                return i;
+	            }
+	        }
+	        if(haystack[i+j] != needle[j]) {
+	            j = 0;
+	            i++;
+	        }
+	    }
+	    return -1;
+	};
+
+</script>
+</html>

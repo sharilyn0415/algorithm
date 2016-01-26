@@ -1,0 +1,37 @@
+<html>
+<head>Search Insert Position</head>
+<body>
+	the random array is: <span id="arr"></span><br>
+	Enter a target number to insert: <input type="number" id="num" />
+	<button onclick="submit()">finding place</button><br>
+	it should be in index of: <span id="res"></span><br>
+</body>
+<script>
+	var arr = [];
+	for (var i=0; i< 35; i++) {
+	    arr.push(Math.round(Math.random() * 100));
+	}
+	document.getElementById("arr").innerHTML = arr.sort(function (a, b) {
+											   	return a - b;
+											   });
+	function submit() {
+		var number = document.getElementById("num").value;
+		document.getElementById("res").innerHTML = searchInsert(arr,number);
+	}
+
+	function searchInsert(nums, target) {
+	    var i = 0, j = nums.length-1;
+		while(i <= j) {
+			var mid = Math.floor((i+j)/2);
+			if(target > nums[mid]) {
+				i = mid+1;
+			} else if(target < nums[mid]){
+				j = mid -1;
+			}else {
+			    return mid;
+			}
+		}
+		return i;
+	};
+</script>
+</html>
