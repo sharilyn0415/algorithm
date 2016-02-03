@@ -15,9 +15,14 @@
         if(strs.length == 0) return "";
         var prefix = "";
         for(var i = 0; i < strs[0].length; i++) {
-             if (strs.every(function (item) {
-                    return strs[0][i] === item[i];
-                })) {
+             // if (strs.every(function (item) {
+             //        return strs[0][i] === item[i];
+             //    })) {
+            var j = 1;
+            while(j < strs.length && i < strs[j].length && strs[0][i] == strs[j][i]) {
+                j++;
+            }
+            if(j == strs.length) {
                 prefix += strs[0][i];
             } else {
                 break;

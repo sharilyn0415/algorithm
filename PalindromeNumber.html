@@ -1,0 +1,25 @@
+<html>
+<head>Palindrome Number</head>
+<body> 
+	Enter a number: <input type="number" id="num" />
+	<button onclick="check()">check</button><br>
+	Palindrome: <span id="res"></span>	
+	
+</body>
+<script>
+	function check() {
+		var num = document.getElementById("num").value;
+		document.getElementById("res").innerHTML = isPalindrome(num);
+	}
+	function isPalindrome(x) {
+	    if(x < 0) return false;
+	    var mirror = 0, target = x;
+	    while (x > 0) {
+	        var temp = x % 10;
+	        x = Math.floor(x/10);
+	        mirror = mirror * 10 + temp;
+	    }
+	    return mirror == target;
+	};
+</script>
+</html>

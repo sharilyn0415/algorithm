@@ -1,0 +1,32 @@
+<html>
+<head>Plus One</head>
+<body> 
+	Enter a number: <input type="number" id="num" />
+	<button onclick="check()">Add</button><br>
+	Result: <span id="res"></span>	
+	
+</body>
+<script>
+	function check() {
+		var num = document.getElementById("num").value;
+		document.getElementById("res").innerHTML = plusOne(num);
+	}
+	var plusOne = function(digits) {
+	    var i = digits.length-1;
+	    while(digits[i] < 9) {
+	        digits[i]++;
+	        return digits;
+	    }
+	    while(digits[i] == 9) {
+	        digits[i] = 0;
+	        i--;
+	    }
+	    if(i < 0){
+	        digits.unshift(1);
+	    } else {
+	        digits[i]+=1;
+	    }
+	    return digits;
+	};
+</script>
+</html>

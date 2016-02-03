@@ -1,0 +1,27 @@
+<html>
+<head>Reverse Integer</head>
+<body> 
+	Enter a number: <input type="number" id="num" />
+	<button onclick="check()">Reverse</button><br>
+	Result: <span id="res"></span>	
+	
+</body>
+<script>
+	function check() {
+		var num = document.getElementById("num").value;
+		document.getElementById("res").innerHTML = reverse(num);
+	}
+	var reverse = function(x) {
+	    if(x == 0 ) return x;
+	    var mirror = 0, y = Math.abs(x);
+	    while(y > 0) {
+	        var temp = y % 10;
+	        y = Math.floor(y/10);
+	        mirror = mirror*10 + temp;
+	   }
+	   if(mirror > 2147483647 || mirror <-2147483648) return 0;
+	   if(x < 0) return -mirror;
+	   return mirror;
+	};
+</script>
+</html>

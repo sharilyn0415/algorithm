@@ -1,0 +1,38 @@
+<html>
+<head>Rotate Array</head>
+<body> 
+	the random array is: <span id="arr"></span><br>
+	rotate times:<input type="number" id="num" />
+	<button onclick="check()">Rotate</button><br>
+	result: <span id="res"></span><br>
+</body>
+<script>
+	var arr = [];
+	for (var i=0; i< 20; i++) {
+	    arr.push(Math.round(Math.random() * 1));
+	}
+	document.getElementById("arr").innerHTML = arr;
+
+	function check() {
+		var num = document.getElementById("num").value;
+		document.getElementById("res").innerHTML = rotate(arr, num);
+	}
+	var rotate = function(nums, k) {
+	    if(nums == null || nums.length < 2 || k % nums.length == 0) return;
+	    k = k % nums.length;
+	    reverse(nums, 0, nums.length-k-1);
+	    reverse(nums, nums.length-k, nums.length-1);
+	    reverse(nums, 0, nums.length-1);
+	};
+	var reverse = function(nums, i, j) {
+	    var tmp = 0;       
+	    while(i < j){
+	        tmp = nums[i];
+	        nums[i] = nums[j];
+	        nums[j] = tmp;
+	        i++;
+	        j--;
+	    }
+	}	
+</script>
+</html>

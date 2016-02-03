@@ -1,0 +1,19 @@
+<html>
+<head>Reverse Integer</head>
+<body> 
+	Enter a number: <input type="number" id="num" />
+	<button onclick="check()">reverse</button><br>
+	Result: <span id="res"></span>	
+	
+</body>
+<script>
+	function check() {
+		var num = document.getElementById("num").value;
+		document.getElementById("res").innerHTML = addDigits(num);
+	}
+	function addDigits(num) {
+	    if(num == 0) return 0;
+	    return num % 9 === 0 ? 9 : num % 9;
+	};
+</script>
+</html>

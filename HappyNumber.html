@@ -1,0 +1,33 @@
+<html>
+<head>Happy Number</head>
+<body> 
+	Enter a number: <input type="number" id="num" />
+	<button onclick="check()">check</button><br>
+	Result: <span id="res"></span>	
+	
+</body>
+<script>
+	function check() {
+		var num = document.getElementById("num").value;
+		document.getElementById("res").innerHTML = isHappy(num);
+	}
+	var isHappy = function(n) {
+	    if (n < 0) return false;
+	    hash = [];
+	    while (n != 1) {
+	        var sum = 0;
+	        while (n != 0) {
+	            sum += (n%10)*(n%10);
+	            n = Math.floor(n/10);
+	        }
+	        n = sum;
+	        if (hash[n]) {
+	            return false;
+	        } else {
+	            hash[n] = true;
+	        }
+	    }
+	    return true;
+	};
+</script>
+</html>
