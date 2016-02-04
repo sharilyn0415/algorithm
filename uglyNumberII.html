@@ -1,0 +1,31 @@
+<html>
+<head>Ugly Number II</head>
+<body> 
+	Want to check Nth prime number: <input type="number" id="num" />
+	<button onclick="check()">check</button><br>
+	Result: <span id="res"></span>	
+	
+</body>
+<script>
+	function check() {
+		var num = document.getElementById("num").value;
+		document.getElementById("res").innerHTML = nthUglyNumber(num);
+	}
+	function nthUglyNumber(n) {
+	    var res = [1];
+	    var p2 = 0, p3 = 0, p5 = 0;
+	    var m,r2,r3,r5;
+	    for(var i = res.length; i < n ; i++) { 
+	        r2 = res[p2] * 2;
+	        r3 = res[p3] * 3;
+	        r5 = res[p5] * 5;
+	        m = Math.min(r2,r3,r5);
+	        if(m === r2) p2++; 
+	        if(m === r3) p3++;
+	        if(m === r5) p5++;
+	        res[i] = m;
+	    }
+	    return res[n-1]; 
+	};
+</script>
+</html>
